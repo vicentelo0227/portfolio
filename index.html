@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vicente Lo — 網站與系統開發</title>
+<meta name="description" content="現職軟體工程師，承接網站開發、系統串接與流程自動化。每個作品都可以直接點開來看。">
+<meta property="og:title" content="Vicente Lo — 網站與系統開發">
+<meta property="og:description" content="我做看得見的網站，也做在背景默默跑的系統。">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f4f6f3;
+  --paper-deep:#e9ede8;
+  --ink:#151a17;
+  --ink-soft:#59625b;
+  --ink-faint:#8b938c;
+  --pine:#22453a;
+  --gold:#8a713d;
+  --night:#101512;
+  --night-ink:#dfe4dd;
+  --night-soft:#98a29a;
+  --rule:#cfd6cd;
+
+  --cjk:"PingFang TC","Noto Sans TC","Hiragino Sans CNS","Microsoft JhengHei",sans-serif;
+  --latin:"Newsreader",Georgia,serif;
+
+  --measure:36rem;
+  --gutter:clamp(1.25rem,5vw,3.5rem);
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--cjk);
+  font-size:clamp(1rem,0.97rem + 0.15vw,1.0625rem);
+  line-height:1.85;
+  letter-spacing:.01em;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:inherit}
+
+.wrap{max-width:64rem;margin:0 auto;padding:0 var(--gutter)}
+.measure{max-width:var(--measure)}
+
+/* ---------- masthead ---------- */
+.masthead{padding-block:2.25rem 0}
+.masthead .name{
+  font-family:var(--latin);
+  font-size:1.0625rem;
+  font-weight:500;
+  letter-spacing:.06em;
+  margin:0;
+}
+.masthead .role{
+  margin:.15rem 0 0;
+  font-size:.875rem;
+  color:var(--ink-faint);
+  letter-spacing:.02em;
+}
+
+/* ---------- hero ---------- */
+.hero{padding-block:clamp(3.5rem,10vw,7rem) clamp(2.5rem,6vw,4rem)}
+.hero h1{
+  margin:0;
+  font-family:var(--cjk);
+  font-weight:600;
+  font-size:clamp(1.85rem,1.1rem + 3.6vw,3.35rem);
+  line-height:1.35;
+  letter-spacing:-.01em;
+  max-width:20ch;
+}
+.hero .lede{
+  margin:clamp(1.5rem,4vw,2.25rem) 0 0;
+  max-width:var(--measure);
+  color:var(--ink-soft);
+  font-size:1.0625rem;
+}
+.hero .lede strong{color:var(--ink);font-weight:600}
+.hero .nudge{
+  margin:1.5rem 0 0;
+  font-size:1rem;
+  color:var(--gold);
+  letter-spacing:.04em;
+}
+
+/* ---------- section headings ---------- */
+.band{padding-block:clamp(3rem,7vw,5rem)}
+.band-title{
+  margin:0 0 clamp(2rem,5vw,3rem);
+  font-size:1rem;
+  font-weight:600;
+  letter-spacing:.02em;
+  color:var(--pine);
+  padding-bottom:.85rem;
+  border-bottom:1px solid var(--rule);
+}
+.band-title .aside{
+  float:right;
+  font-weight:400;
+  color:var(--ink-faint);
+  font-size:.875rem;
+}
+
+/* ---------- work entries ---------- */
+.work{margin:0 0 clamp(3.5rem,8vw,5.5rem)}
+.work:last-child{margin-bottom:0}
+.work figure{margin:0 0 1.75rem}
+.work figure a{display:block;position:relative;background:var(--paper-deep)}
+.work figure img{
+  width:100%;
+  transition:opacity .35s ease;
+}
+.work figure a:hover img,
+.work figure a:focus-visible img{opacity:.88}
+.work h3{
+  margin:0;
+  font-size:1.3rem;
+  font-weight:600;
+  line-height:1.5;
+}
+.work h3 .en{
+  font-family:var(--latin);
+  font-weight:400;
+  font-size:1.05rem;
+  color:var(--ink-faint);
+  margin-left:.55rem;
+  letter-spacing:.01em;
+}
+.work .kind{
+  margin:.35rem 0 1rem;
+  font-size:.875rem;
+  color:var(--ink-faint);
+}
+.work p{margin:0 0 1rem;max-width:var(--measure)}
+.work .did{
+  margin:1.5rem 0 0;
+  padding:1.25rem 0 0;
+  border-top:1px solid var(--rule);
+  max-width:var(--measure);
+}
+.work .did dt{
+  font-size:.8125rem;
+  color:var(--ink-faint);
+  margin-bottom:.35rem;
+}
+.work .did dd{
+  margin:0 0 1rem;
+  font-size:.9375rem;
+  line-height:1.75;
+}
+.work .did dd:last-child{margin-bottom:0}
+.links{margin:1.5rem 0 0;display:flex;flex-wrap:wrap;gap:.5rem 1.75rem}
+.links a{
+  font-size:.9375rem;
+  text-decoration:none;
+  border-bottom:1px solid currentColor;
+  padding-bottom:1px;
+}
+.links a.live{color:var(--gold)}
+.links a.src{color:var(--ink-soft);border-bottom-color:var(--rule)}
+.links a:hover,.links a:focus-visible{color:var(--pine);border-bottom-color:currentColor}
+
+/* ---------- night band ---------- */
+.night{
+  background:var(--night);
+  color:var(--night-ink);
+  padding-block:clamp(3.5rem,8vw,6rem);
+}
+.night .band-title{color:#a9bdb0;border-bottom-color:#28322a}
+.night .band-title .aside{color:#6c766e}
+.night .intro{
+  max-width:var(--measure);
+  color:var(--night-soft);
+  margin:0 0 clamp(2.5rem,6vw,3.5rem);
+}
+.night .work h3{color:var(--night-ink)}
+.night .work h3 .en{color:#7e8880}
+.night .work .kind{color:#7e8880}
+.night .work p{color:var(--night-soft)}
+.night .work .did{border-top-color:#28322a}
+.night .work .did dt{color:#6c766e}
+.night .work .did dd{color:var(--night-soft)}
+.night .links a.src{color:#9fb0a4;border-bottom-color:#39443b}
+.night .links a.live{color:#c2a765}
+.night .links a:hover,.night .links a:focus-visible{color:#fff;border-bottom-color:currentColor}
+.night .work{margin-bottom:clamp(3rem,7vw,4.5rem)}
+
+/* ---------- services ---------- */
+.services{background:var(--paper-deep)}
+.svc-list{margin:0;padding:0;list-style:none;max-width:44rem}
+.svc-list li{
+  padding:1.35rem 0;
+  border-bottom:1px solid var(--rule);
+  display:grid;
+  grid-template-columns:11rem 1fr;
+  gap:.35rem 2rem;
+  align-items:baseline;
+}
+.svc-list li:first-child{border-top:1px solid var(--rule)}
+.svc-list .what{font-weight:600;font-size:1rem}
+.svc-list .detail{color:var(--ink-soft);font-size:.9375rem;line-height:1.75}
+
+/* ---------- about ---------- */
+.about p{max-width:var(--measure);margin:0 0 1.15rem}
+.about .stack{
+  margin:2rem 0 0;
+  padding-top:1.5rem;
+  border-top:1px solid var(--rule);
+  max-width:var(--measure);
+  color:var(--ink-soft);
+  font-size:.9375rem;
+  line-height:2;
+}
+.about .stack b{color:var(--ink);font-weight:600;font-size:.875rem;display:block;margin-bottom:.2rem}
+
+/* ---------- contact ---------- */
+.contact{padding-bottom:clamp(4rem,10vw,7rem)}
+.contact h2{
+  margin:0 0 1.25rem;
+  font-size:clamp(1.4rem,1rem + 1.8vw,2rem);
+  font-weight:600;
+  line-height:1.5;
+  max-width:22ch;
+}
+.contact p{max-width:var(--measure);color:var(--ink-soft);margin:0 0 2rem}
+.contact-list{margin:0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:1rem 2.5rem}
+.contact-list a{
+  font-size:1rem;
+  text-decoration:none;
+  border-bottom:1px solid var(--rule);
+  padding-bottom:2px;
+}
+.contact-list a:hover,.contact-list a:focus-visible{border-bottom-color:var(--pine);color:var(--pine)}
+
+footer.wrap{
+  border-top:1px solid var(--rule);
+  padding-block:2rem 3rem;
+  color:var(--ink-faint);
+  font-size:.8125rem;
+}
+footer p{margin:0}
+
+:focus-visible{outline:2px solid var(--pine);outline-offset:3px}
+.night :focus-visible{outline-color:#c2a765}
+
+@media (max-width:38rem){
+  .svc-list li{grid-template-columns:1fr;gap:.3rem}
+  .band-title .aside{float:none;display:block;margin-top:.35rem}
+}
+@media (prefers-reduced-motion:reduce){
+  *{transition:none!important;animation:none!important}
+}
+</style>
+</head>
+<body>
+
+<header class="masthead wrap">
+  <p class="name">Vicente Lo</p>
+  <p class="role">網站與系統開發</p>
+</header>
+
+<section class="hero wrap">
+  <h1>我做看得見的網站，也做在背景默默跑的系統。</h1>
+  <p class="lede">
+    現職軟體工程師，白天維護支撐<strong>數十萬用戶</strong>的線上平台後端，
+    下班後接案，把個人與小型團隊的想法做成真的能用、而且不會三個月後就壞掉的東西。
+  </p>
+  <p class="nudge">下面每一個作品，都可以直接點開來看。</p>
+</section>
+
+<section class="band wrap">
+  <h2 class="band-title">看得見的<span class="aside">打開就能用的網站</span></h2>
+
+  <article class="work">
+    <figure>
+      <a href="https://vicentelo0227.github.io/card/" target="_blank" rel="noopener">
+        <img src="images/forest-walk.jpg" alt="森林漫步網站的開場畫面，深色森林背景上有金色標題" width="1200" height="675" loading="lazy">
+      </a>
+    </figure>
+    <h3>森林漫步<span class="en">Forest Walk</span></h3>
+    <p class="kind">互動式沉浸網站</p>
+    <p>
+      一個可以在瀏覽器裡散步的森林。沒有分數也沒有計時，點擊畫面中發光的地方往前走，
+      沿途會經過幾個可以停下來聽音樂的地方。關掉分頁明天再回來，會記得你走到哪裡。
+    </p>
+    <dl class="did">
+      <dt>我做了什麼</dt>
+      <dd>
+        視覺設計、互動流程、前端實作到自動部署全部一人完成。
+        11 個場景分主線與支線，6 個停留點各有專屬配樂。
+      </dd>
+      <dt>比較難的地方</dt>
+      <dd>
+        要讓人感覺不到技術的存在。影片背景用雙層交叉淡入消除循環接縫；
+        環境音以分貝換算音量後疊加，讓溪流、鳥鳴、林風同時存在卻不互相蓋過。
+      </dd>
+      <dt>技術</dt>
+      <dd>Vue 3、Vite、Pinia、Tailwind CSS、Howler.js、GitHub Actions 自動部署</dd>
+    </dl>
+    <p class="links">
+      <a class="live" href="https://vicentelo0227.github.io/card/" target="_blank" rel="noopener">走進去看看</a>
+      <a class="src" href="https://github.com/vicentelo0227/card" target="_blank" rel="noopener">原始碼</a>
+    </p>
+  </article>
+
+  <article class="work">
+    <figure>
+      <a href="https://bmushsoftmusic.com" target="_blank" rel="noopener">
+        <img src="images/bmush.jpg" alt="B'Mush 音樂網站首頁，暖色調的夜間房間照片與文章卡片" width="1200" height="750" loading="lazy">
+      </a>
+    </figure>
+    <h3>B'Mush<span class="en">soft music</span></h3>
+    <p class="kind">內容網站，上線營運中</p>
+    <p>
+      一個關於慢音樂的網站，有文章、播放清單與訂閱電子報。
+      從網域、佈景、內容到後續維護都是自己來，現在每週固定更新。
+    </p>
+    <dl class="did">
+      <dt>我做了什麼</dt>
+      <dd>
+        自己寫了一套 WordPress 區塊佈景主題（不是套用現成模板），
+        包含版面配置、色彩系統、字體與各頁模板；並建置本機開發環境，改好測過才上線。
+      </dd>
+      <dt>為什麼這件事跟你有關</dt>
+      <dd>
+        如果你要的是一個能自己更新內容、不用每次都回來找工程師的網站，這就是我實際在做的事。
+        我不只把網站交出去，我自己也在經營一個。
+      </dd>
+      <dt>技術</dt>
+      <dd>WordPress 區塊佈景主題、theme.json 設計系統、本機開發環境與部署流程</dd>
+    </dl>
+    <p class="links">
+      <a class="live" href="https://bmushsoftmusic.com" target="_blank" rel="noopener">看網站</a>
+    </p>
+  </article>
+</section>
+
+<section class="night">
+  <div class="wrap">
+    <h2 class="band-title">看不見的<span class="aside">你睡覺的時候還在跑</span></h2>
+    <p class="intro">
+      有些東西沒有畫面，但它每天準時做完一件本來要花你一小時的事。
+      這類系統占我工作的一大半。
+    </p>
+
+    <article class="work">
+      <h3>新聞自動彙整系統</h3>
+      <p class="kind">每日自動執行，無人介入</p>
+      <p>
+        每天固定時間自動抓取多個新聞來源，用 AI 判讀重要性與摘要內容，
+        整理成報告發到 Slack，同時完整存進 Google 試算表備查。
+        AI 新聞每天早上八點、台股每個交易日傍晚六點、美股每個交易日晚上十點。
+      </p>
+      <dl class="did">
+        <dt>解決什麼問題</dt>
+        <dd>
+          原本要人每天花時間翻新聞、判斷哪些重要、再整理給大家看。現在這件事沒有人需要做。
+        </dd>
+        <dt>技術</dt>
+        <dd>Python、RSS 多來源整合、LLM 分析、Slack Block Kit、Google Sheets API、GitHub Actions 排程</dd>
+      </dl>
+      <p class="links">
+        <a class="src" href="https://github.com/vicentelo0227/ai-news-aggregator" target="_blank" rel="noopener">原始碼</a>
+      </p>
+    </article>
+
+    <article class="work">
+      <h3>台股當沖策略系統</h3>
+      <p class="kind">個人專案，原始碼未公開</p>
+      <p>
+        接券商 API 取得即時報價，依設定好的規則判斷進出場，同時管理部位與風險上限。
+        另外有一套獨立的回測工具，可以先用歷史資料驗證策略再上線。
+      </p>
+      <dl class="did">
+        <dt>為什麼放這個</dt>
+        <dd>
+          這類系統出錯就是真的賠錢，所以架構必須乾淨、每一層都要能單獨測試。
+          報價、策略、部位、風控、下單各自獨立，換掉其中一層不會動到其他部分。
+          這正是我做任何後端系統的方式。
+        </dd>
+        <dt>技術</dt>
+        <dd>Python、券商 API 串接、分層架構設計、回測框架、狀態管理與風控規則</dd>
+      </dl>
+    </article>
+
+    <article class="work">
+      <h3>動畫批次渲染工具</h3>
+      <p class="kind">影音製作工具</p>
+      <p>
+        丟進一個動畫檔，自動生出 30 種配色版本，再串成一支長循環影片，
+        版本之間平順轉場，輸出可直接進剪輯軟體的透明背景格式。
+        用多核心同時算，把原本要等很久的事縮短。
+      </p>
+      <dl class="did">
+        <dt>解決什麼問題</dt>
+        <dd>
+          原本要在動畫軟體裡手動改色、逐一輸出、再自己接起來，重複三十次。現在一行指令。
+        </dd>
+        <dt>技術</dt>
+        <dd>Node.js、Worker Threads 多核心平行處理、Lottie、FFmpeg、ProRes 4444 透明輸出</dd>
+      </dl>
+    </article>
+  </div>
+</section>
+
+<section class="band services">
+  <div class="wrap">
+    <h2 class="band-title">可以找我做什麼</h2>
+    <ul class="svc-list">
+      <li>
+        <span class="what">網站開發</span>
+        <span class="detail">形象官網、活動網頁、產品介紹頁。可以從版面設計到實作全包，也可以依你既有的設計稿實作。手機版一定會做好。</span>
+      </li>
+      <li>
+        <span class="what">網站架設與搬家</span>
+        <span class="detail">WordPress 架站與客製佈景、網域與主機設定、既有網站搬家。交付後你自己就能更新內容。</span>
+      </li>
+      <li>
+        <span class="what">流程自動化</span>
+        <span class="detail">把每天重複做的事變成自動執行：定時抓資料、自動整理報表、串接 Slack 或 Google 試算表通知。</span>
+      </li>
+      <li>
+        <span class="what">系統與 API 開發</span>
+        <span class="detail">後端 API、資料庫設計、金流與第三方服務串接、後台管理系統、爬蟲程式。</span>
+      </li>
+      <li>
+        <span class="what">接手與改善</span>
+        <span class="detail">網站很慢、功能壞掉、前一個工程師交接不清楚。這類沒人想接的案子我也承接。</span>
+      </li>
+      <li>
+        <span class="what">教學與 AI 導入</span>
+        <span class="detail">一對一程式教學；或是帶團隊把 AI 工具真的用進日常工作流程，不是看完就忘的講座。</span>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="band about wrap">
+  <h2 class="band-title">關於我</h2>
+  <p>
+    我在產品公司擔任軟體工程師，日常面對的是真實流量、真實用戶、
+    出錯會有人立刻打電話進來的系統。所以我習慣的標準不是「跑得動就好」，
+    而是要能長期維護、出問題找得到原因。
+  </p>
+  <p>
+    接案是下班後的事，我一次只接一到兩個案子，寧可少接也不願意讓你等。
+    技術問題我會用你聽得懂的方式解釋，不會用術語把你繞暈，
+    也不會在你還沒聽懂的時候讓你簽下去。
+  </p>
+  <div class="stack">
+    <b>常用的技術</b>
+    後端：Ruby on Rails、Go、Python、MySQL、MongoDB<br>
+    前端：Vue 3、JavaScript、Tailwind CSS、RWD 響應式網頁<br>
+    其他：WordPress 佈景開發、GitHub Actions 自動化部署、Google Apps Script、Swift（iOS）
+  </div>
+</section>
+
+<section class="band contact wrap">
+  <h2>如果你有想做的東西，先聊聊也沒關係。</h2>
+  <p>
+    就算最後沒有合作，我也可以先幫你判斷這件事大概需要多少工、值不值得做。
+    描述得越具體越好，不確定怎麼講也沒關係，我會問。
+  </p>
+  <ul class="contact-list">
+    <li><a href="mailto:【你的接案信箱】">寄信給我</a></li>
+    <li><a href="【你的 PRO360 個人頁網址】" target="_blank" rel="noopener">PRO360 上的我</a></li>
+    <li><a href="https://github.com/vicentelo0227" target="_blank" rel="noopener">GitHub</a></li>
+  </ul>
+</section>
+
+<footer class="wrap">
+  <p>© 2026 Vicente Lo</p>
+</footer>
+
+</body>
+</html>
